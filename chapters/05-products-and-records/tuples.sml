@@ -23,3 +23,8 @@ val x' =
 (* Strictly speaking, it is not essential to have tuple expressions as a
    primitive notion in the language. *)
 
+(* Tuple patterns *)
+val (m : int, n : int) = (8+1, 8 div 3)
+val ((a : int, b : int), (c : real, d : real)) =
+  ((3, 4), (3.0, 4.0))
+
