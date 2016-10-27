@@ -20,3 +20,15 @@ fun halve (n : int) : int = n div 2
 fun is_even (n : int) : bool = (n mod 2 = 0)
 fun is_odd (n : int) : bool = not (is_even n)
 
+(* Binding in function expressions *)
+val x : real = 2.0
+fun f(x : real) : real = x + x  (* x is bound to the function parameter *)
+fun g(y : real) : real = x + y  (* x = 2.0 *)
+
+(* Local val bindings may shadow parameters, as well as other val
+   bindings. *)
+fun h(x : real) : real =
+  let val x : real = 3.0 in x + x end * x;
+
+h(4.0);  (* evaluates to 24.0 *)
+
