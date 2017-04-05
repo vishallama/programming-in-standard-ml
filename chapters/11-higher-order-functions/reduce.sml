@@ -11,3 +11,11 @@ fun better_reduce(unit, opn, l) =
     loop l
   end
 
+fun staged_reduce (unit, opn) =
+  let
+    fun red nil = unit
+      | red (h::t) = opn(h, red t)
+  in
+    red
+  end
+
