@@ -7,3 +7,14 @@ sig
   val mult : integer * integer -> integer
 end
 
+(* Standard implementation of ARITH *)
+
+structure Ints : ARITH =
+struct
+  type integer = int
+  fun rep(n : int) : integer = n
+  fun display(n : integer) : string = Int.toString n
+  val add : integer * integer -> integer = (op +)
+  val mult : integer * integer -> integer = (op * )
+end
+
