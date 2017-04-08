@@ -22,3 +22,16 @@ end
 signature QUEUE_AS_LISTS =
 QUEUE where type 'a queue = 'a list * 'a list
 
+(* Example of a structure binding *)
+
+structure Queue =
+struct
+  type 'a queue = 'a list * 'a list
+  exception Empty
+  val empty = (nil, nil)
+  fun insert (x, (b, f)) = (x::b, f)
+  fun remove (nil, nil) = raise Empty
+    | remove (bs, nil) = remove(nil, rev bs)
+    | remove (bs, f::fs) = (f, (bs, fs))
+end
+
