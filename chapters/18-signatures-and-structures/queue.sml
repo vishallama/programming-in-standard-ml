@@ -9,3 +9,11 @@ sig
   val remove : 'a queue -> 'a * 'a queue
 end
 
+(* Add more components to an existing signature using signature inclusion. *)
+
+signature QUEUE_WITH_EMPTY =
+sig
+  include QUEUE
+  val is_empty : 'a queue -> bool
+end
+
