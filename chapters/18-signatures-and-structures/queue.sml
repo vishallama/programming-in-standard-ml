@@ -17,3 +17,8 @@ sig
   val is_empty : 'a queue -> bool
 end
 
+(* Augment an existing signature with an additional type definition. *)
+
+signature QUEUE_AS_LISTS =
+QUEUE where type 'a queue = 'a list * 'a list
+
