@@ -38,3 +38,5 @@ struct
   val mult : integer * integer -> integer = (op * )
 end
 
+structure Ints3 : ARITH2 = Ints
+
